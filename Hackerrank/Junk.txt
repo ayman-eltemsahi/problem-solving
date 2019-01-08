@@ -1,0 +1,73 @@
+﻿int[] ind = { 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 
+                131072, 262144, 524288, 1048576, 2097152 , 4194304, 8388608, 16777216, 33554432, 67108864,134217728,268435456};
+int[] val = { 2, 7, 8, 4, 5, 127, 128, 121, 125, 97, 113, 64, 65, 32767, 32768, 32761, 32765, 
+                32737, 32753, 32641, 32705,32257,32513,30721,31745,24577,28673,16384 ,16385};
+// if ((n-3)%4==0) ---> 0
+// if ((n-5)%4==0) ---> 1
+// if ((n-6)%4==0) ---> n%4==0
+// if (n%4==0) ---> n/4
+
+
+int[] twos = new int[31];
+for (int i = 1; i < 31; i++) {
+    twos[i] = (int)Math.Pow(2, i);
+}
+
+int calc = 4 * 4194304;
+int[] gr = new int[calc+1];
+calculateGrundy(gr, calc+1);
+Console.WriteLine("done");
+for (int pile = calc; pile <= calc; pile += 4) {
+    if (pile % 100 == 0) Console.ReadLine();
+    // calculate current grundy
+
+    int removed = 0;
+    bool se = true;
+    int xorbefore = 0;
+    for (int j = 1; j <= pile; j++) {
+        if (Array.BinarySearch(twos, j) < 0) {
+            xorbefore ^= gr[j];
+        }
+    }
+    Console.WriteLine("work...");
+    while (se) {
+        removed++;
+        Console.WriteLine(removed);
+        for (int k = 10; k < 18; k++) {
+            int i = twos[k];
+            if (removed < Math.Ceiling((double)i / 2.0) || removed > i) continue;
+            int xor = xorbefore;
+            for (int jj = 0; jj <= 30; jj++) {
+                int j = twos[jj];
+                if (j > calc) break;
+                if (j == i) xor ^= gr[j - removed];
+                else {
+                    xor ^= gr[j];
+                }
+            }
+            if (xor == 0) { se = false; Console.WriteLine("                  " + i); break; }
+        }
+    }
+    Console.WriteLine(pile + "   " + removed);
+}
+int tc = int.Parse(Console.ReadLine());
+while (tc-- > 0) {
+    int n = int.Parse(Console.ReadLine());
+}
+static void calculateGrundy(int[] gr, int n) {
+gr[0] = 0;
+gr[1] = 1;
+HashSet<int> hash = new HashSet<int>();
+
+int last = 0;
+for (int i = 2; i < n; i++) {
+
+    for (int j = i / 2 - 1; j <= i / 2; j++) {
+        hash.Add(gr[j]);
+    }
+    int g = last;
+    while (hash.Contains(g)) g++;
+    gr[i] = g;
+    last = g;
+}
+}
