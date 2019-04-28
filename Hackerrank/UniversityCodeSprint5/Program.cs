@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Hackerrank.UniversityCodeSprint5 {
     class Solution {
-        static void Main() {
+        static void Main2() {
             Console.SetIn(new System.IO.StreamReader("input"));
             int tc = int.Parse(Console.ReadLine());
             while (tc-- > 0) {

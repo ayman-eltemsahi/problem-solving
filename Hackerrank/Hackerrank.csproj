@@ -58,6 +58,8 @@
     <Compile Include="CodeJam\Qualification\P2.cs" />
     <Compile Include="CodeJam\Qualification\P3.cs" />
     <Compile Include="CodeJam\Qualification\P4.cs" />
+    <Compile Include="CodeJam\Qualification_2019\P2.cs" />
+    <Compile Include="CodeJam\Qualification_2019\P1.cs" />
     <Compile Include="CodeJam\R1\P3.cs" />
     <Compile Include="CodeJam\R1\P2.cs" />
     <Compile Include="CodeJam\R1\P1.cs" />
@@ -77,6 +79,8 @@
     <Compile Include="Categories\Strings.cs" />
     <Compile Include="subtrees.cs" />
     <Compile Include="SuffixTree.cs" />
+    <Compile Include="UniversityCodeSprint5\Codeasy2.cs" />
+    <Compile Include="UniversityCodeSprint5\Codeasy.cs" />
     <Compile Include="UniversityCodeSprint5\Program.cs" />
     <Compile Include="UniversityCodeSprint3\Simple_Tree_Counting.cs" />
     <Compile Include="Week of Code - 20.cs" />
