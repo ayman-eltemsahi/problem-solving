@@ -6,8 +6,13 @@ project(problem-solving)
 
 
 list(APPEND INPUT_FILES
+  "hackerrank/utils.hpp"
+  "hackerrank/utils.cpp"
+
+  "hackerrank/cloudy-day.cpp"
+  # "hackerrank/roads-in-hackerland.cpp"
   # "hackerrank/maximum-palindromes.cpp"
-  "hackerrank/synchronous-shopping.cpp"
+  # "hackerrank/synchronous-shopping.cpp"
 )
 add_executable (binary ${INPUT_FILES})
 
