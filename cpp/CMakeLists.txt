@@ -10,10 +10,7 @@ list(APPEND INPUT_FILES
   "hackerrank/utils.cpp"
 
 
-  # "fb/round1/chapter1.cpp"
-  # "fb/round1/chapter2.cpp"
-  "fb/round1/chapter3.cpp"
-
+  "hackerrank/construct-the-array.cpp"
   # "hackerrank/cloudy-day.cpp"
   # "hackerrank/roads-in-hackerland.cpp"
   # "hackerrank/maximum-palindromes.cpp"
