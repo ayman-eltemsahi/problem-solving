@@ -10,7 +10,8 @@ list(APPEND INPUT_FILES
   "hackerrank/utils.cpp"
 
 
-  "hackerrank/prime-xor.cpp"
+  "hackerrank/winning-lottery-ticket.cpp"
+  # "hackerrank/prime-xor.cpp"
   # "hackerrank/construct-the-array.cpp"
   # "hackerrank/cloudy-day.cpp"
   # "hackerrank/roads-in-hackerland.cpp"
