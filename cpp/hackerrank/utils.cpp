@@ -12,4 +12,19 @@ std::string binary(int num, int k) {
   return s;
 }
 
+bool is_prime(long long int n) {
+  if (n == 2)
+    return true;
+  if (n < 2 || n % 2 == 0)
+    return false;
+
+  for (int i = 3; i <= n / 2; i++) {
+    if (n % i == 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 } // namespace utils

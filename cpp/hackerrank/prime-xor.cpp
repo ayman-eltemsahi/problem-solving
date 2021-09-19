@@ -1,3 +1,4 @@
+#include "utils.hpp"
 #include <iostream>
 #include <unordered_map>
 #include <vector>
@@ -13,26 +14,9 @@ const ll MOD = ll(1e9 + 7);
 bool primes[9000];
 ll dp[2][MAXN];
 
-void check_primes() {
-  primes[0] = primes[1] = false;
-  primes[2] = true;
-  for (int n = 3; n < 9000; n++) {
-    if (n % 2 == 0) {
-      primes[n] = false;
-      continue;
-    }
-    primes[n] = true;
-    for (int i = 3; i <= n / 2; i++) {
-      if (n % i == 0) {
-        primes[n] = false;
-        break;
-      }
-    }
-  }
-}
-
 int main() {
-  check_primes();
+  FORN(i, 9000) primes[i] = utils::is_prime(i);
+
   int T;
   std::cin >> T;
   while (T--) {
@@ -67,6 +51,6 @@ int main() {
         ans = (ans + dp[p ^ 1][j]) % MOD;
     }
 
-    std::cout << ans << "\n";
+    LOG(ans);
   }
 }
