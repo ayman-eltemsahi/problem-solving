@@ -12,7 +12,7 @@ list(APPEND INPUT_FILES
   "hackerrank/utils.cpp"
 
 
-  "leetcode/longest-substring-without-repeating-characters.cpp"
+  "leetcode/zigzag-conversion.cpp"
 
 
   # "hackerrank/newyear-game.cpp"
