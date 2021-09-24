@@ -12,7 +12,8 @@ list(APPEND INPUT_FILES
   "hackerrank/utils.cpp"
 
 
-  "leetcode/zigzag-conversion.cpp"
+  "leetcode/greatest-sum-divisible-by-three.cpp"
+  # "leetcode/playground.cpp"
 
 
   # "hackerrank/newyear-game.cpp"
