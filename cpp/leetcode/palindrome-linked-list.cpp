@@ -14,6 +14,7 @@ typedef long long int ll;
 const ll MOD = ll(1e9 + 7);
 #define MAXN 2001
 
+#if defined(RUNNING_LOCALLY)
 struct ListNode {
   int val;
   ListNode *next;
@@ -21,7 +22,9 @@ struct ListNode {
   ListNode(int x) : val(x), next(nullptr) {}
   ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+#endif
 
+/* O(n) time and O(1) space */
 class Solution {
 public:
   bool isPalindrome(ListNode *head) {
@@ -58,13 +61,13 @@ public:
       cur = cur->next == nullptr ? cur : cur->next;
     }
 
-    ListNode *cur2 = tail;
+    cur = tail;
     prev = nullptr;
-    for (int i = 0; i < count / 2; i++) {
-      ListNode *nex = cur2->next;
-      cur2->next = prev;
-      prev = cur2;
-      cur2 = nex;
+    for (int i = 0; i <= count / 2; i++) {
+      ListNode *nex = cur->next;
+      cur->next = prev;
+      prev = cur;
+      cur = nex;
     }
 
     return flag;
@@ -76,10 +79,10 @@ int main() {
   Solution s;
 
   ListNode *a =
-      new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(5))));
+      new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(1))));
   s.isPalindrome(a);
 
-  // a = new ListNode(1, new ListNode(2, new ListNode(1)));
-  // LOG(s.isPalindrome(a));
+  a = new ListNode(1, new ListNode(2, new ListNode(1)));
+  LOG(s.isPalindrome(a));
 }
 #endif

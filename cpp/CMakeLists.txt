@@ -12,7 +12,7 @@ list(APPEND INPUT_FILES
   "hackerrank/utils.cpp"
 
 
-  "leetcode/greatest-sum-divisible-by-three.cpp"
+  "leetcode/palindrome-linked-list.cpp"
   # "leetcode/playground.cpp"
 
 
