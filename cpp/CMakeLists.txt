@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.21)
 
 set(CMAKE_CXX_STANDARD 14)
+add_definitions(-DRUNNING_LOCALLY)
+
 
 project(problem-solving)
 
@@ -10,7 +12,10 @@ list(APPEND INPUT_FILES
   "hackerrank/utils.cpp"
 
 
-  "hackerrank/newyear-game.cpp"
+  "leetcode/longest-substring-without-repeating-characters.cpp"
+
+
+  # "hackerrank/newyear-game.cpp"
   # "hackerrank/red-knights-shortest-path.cpp"
   # "hackerrank/stone-division-2.cpp"
   # "hackerrank/winning-lottery-ticket.cpp"
