@@ -11,21 +11,14 @@ list(APPEND INPUT_FILES
   "hackerrank/utils.hpp"
   "hackerrank/utils.cpp"
 
+  # "playground/test.cpp"
 
-  "leetcode/container-with-most-water.cpp"
+  # "fb/round2/valet-parking.cpp"
+  # "hackerrank/extremum-permutations.cpp"
+
+
+  "leetcode/roman-to-integer.cpp"
   # "leetcode/playground.cpp"
-
-
-  # "hackerrank/newyear-game.cpp"
-  # "hackerrank/red-knights-shortest-path.cpp"
-  # "hackerrank/stone-division-2.cpp"
-  # "hackerrank/winning-lottery-ticket.cpp"
-  # "hackerrank/prime-xor.cpp"
-  # "hackerrank/construct-the-array.cpp"
-  # "hackerrank/cloudy-day.cpp"
-  # "hackerrank/roads-in-hackerland.cpp"
-  # "hackerrank/maximum-palindromes.cpp"
-  # "hackerrank/synchronous-shopping.cpp"
 )
 
 add_executable (binary ${INPUT_FILES})

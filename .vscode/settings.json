@@ -107,6 +107,7 @@
     "syncstream": "cpp",
     "filesystem": "cpp",
     "hash_map": "cpp",
-    "cassert": "cpp"
+    "cassert": "cpp",
+    "__functional_03": "cpp"
   }
 }
