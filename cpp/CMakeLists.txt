@@ -17,7 +17,9 @@ list(APPEND INPUT_FILES
   # "hackerrank/extremum-permutations.cpp"
 
 
-  "leetcode/making-file-names-unique.cpp"
+  "codeforces/gamer-hemose.cpp"
+
+  # "leetcode/making-file-names-unique.cpp"
   # "leetcode/playground.cpp"
 )
 
