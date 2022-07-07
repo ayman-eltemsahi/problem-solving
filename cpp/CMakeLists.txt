@@ -17,7 +17,7 @@ list(APPEND INPUT_FILES
   # "hackerrank/extremum-permutations.cpp"
 
 
-  "leetcode/sentence-similarity-iii.cpp"
+  "leetcode/split-array-into-fibonacci-sequence.cpp"
 
   # "leetcode/making-file-names-unique.cpp"
   # "leetcode/playground.cpp"
