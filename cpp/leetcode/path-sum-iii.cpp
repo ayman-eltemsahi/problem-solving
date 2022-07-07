@@ -6,6 +6,7 @@
 #include <vector>
 #include <unordered_map>
 
+typedef long long int ll;
 #define FORN(i, n) for (int i = 0; i < (n); i++)
 #define FORN1(i, n) for (int i = 1; i < (n); i++)
 #define LOG(a) std::cout << (a) << "\n"
@@ -24,28 +25,22 @@ struct TreeNode {
   }
 };
 
-typedef long long int ll;
-std::unordered_map<ll, ll> traverse(TreeNode *node, int sum, ll &result) {
-  if (node == nullptr) return {};
-  const auto left = traverse(node->left, sum, result);
-  const auto right = traverse(node->right, sum, result);
-
-  std::unordered_map<ll, ll> m;
-  for (const auto kv : left) {
-    const ll val = kv.first + node->val;
-    m[val] += kv.second;
-    if (val == sum) result += m[val];
-  }
-
-  for (const auto kv : right) {
-    const ll val = kv.first + node->val;
-    m[val] += kv.second;
-    if (val == sum) result += kv.second;
-  }
-
-  m[node->val]++;
+void traverse_sum(TreeNode *node, ll sum, ll &result) {
+  if (node == nullptr) return;
   if (node->val == sum) result++;
-  return m;
+  sum -= node->val;
+
+  traverse_sum(node->left, sum, result);
+  traverse_sum(node->right, sum, result);
+}
+
+void traverse(TreeNode *node, ll sum, ll &result) {
+  if (node == nullptr) return;
+
+  traverse(node->left, sum, result);
+  traverse(node->right, sum, result);
+
+  traverse_sum(node, sum, result);
 }
 
 class Solution {
