@@ -14,42 +14,15 @@ typedef long long int ll;
 const ll MOD = ll(1e9 + 7);
 #define MAXN 2001
 
-int get_sum(int tree[], int index) {
-  int sum = 0;
-  index++;
-
-  while (index > 0) {
-    sum += tree[index];
-    index -= index & (-index);
-  }
-  return sum;
-}
-
-void update_tree(int tree[], int n, int index, int val) {
-  index++;
-
-  while (index <= n) {
-    tree[index] += val;
-    index += index & (-index);
-  }
-}
-
 class Solution {
  public:
   bool canJump(std::vector<int>& nums) {
     const auto n = nums.size();
-    int* tree = new int[n + 1];
-    FORN(i, n + 1) tree[i] = 0;
-    update_tree(tree, n, n - 1, 1);
-
+    int last = n - 1;
     for (int i = n - 2; i >= 0; i--) {
-      int topIndex = nums[i] + i;
-      if (topIndex >= n || get_sum(tree, topIndex)) {
-        update_tree(tree, n, i, 1);
-      }
+      if (nums[i] + i >= last) last = i;
     }
-
-    return get_sum(tree, 0);
+    return last == 0;
   }
 };
 
