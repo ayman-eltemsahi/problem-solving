@@ -17,7 +17,7 @@ list(APPEND INPUT_FILES
   # "hackerrank/extremum-permutations.cpp"
 
 
-  "leetcode/jump-game-vi.cpp"
+  "leetcode/jump-game-vii.cpp"
 
   # "leetcode/making-file-names-unique.cpp"
   # "leetcode/playground.cpp"
