@@ -17,7 +17,7 @@ list(APPEND INPUT_FILES
   # "hackerrank/extremum-permutations.cpp"
 
 
-  "leetcode/longest-consecutive-sequence.cpp"
+  "leetcode/search-a-2d-matrix.cpp"
 
   # "leetcode/making-file-names-unique.cpp"
   # "leetcode/playground.cpp"
