@@ -1,3 +1,5 @@
+#include <math.h>
+
 struct TreeNode {
   int val;
   TreeNode* left;
@@ -66,3 +68,20 @@ class Trie {
     return this->children[word[i] - 'a']->search_internal(word, i + 1, search_full_word);
   }
 };
+
+std::vector<int> prime_factors(int n) {
+  std::vector<int> factors;
+  while (n % 2 == 0) {
+    factors.push_back(2);
+    n = n / 2;
+  }
+
+  for (int i = 3; i <= sqrt(n); i += 2) {
+    while (n % i == 0) {
+      factors.push_back(i);
+      n = n / i;
+    }
+  }
+  if (n > 2) factors.push_back(n);
+  return factors;
+}
