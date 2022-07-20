@@ -17,7 +17,7 @@ list(APPEND INPUT_FILES
   # "hackerrank/extremum-permutations.cpp"
 
 
-  "leetcode/find-median-from-data-stream.cpp"
+  "leetcode/design-twitter.cpp"
 
   # "leetcode/making-file-names-unique.cpp"
   # "leetcode/playground.cpp"
