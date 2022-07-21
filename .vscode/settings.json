@@ -109,6 +109,8 @@
     "hash_map": "cpp",
     "cassert": "cpp",
     "__functional_03": "cpp",
-    "__bits": "cpp"
+    "__bits": "cpp",
+    "strstream": "cpp",
+    "*.ipp": "cpp"
   }
 }

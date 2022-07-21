@@ -85,3 +85,12 @@ std::vector<int> prime_factors(int n) {
   if (n > 2) factors.push_back(n);
   return factors;
 }
+
+int gcd(int a, int b) {
+  while (b != 0) {
+    int temp = b;
+    b = a % b;
+    a = temp;
+  }
+  return a;
+}
