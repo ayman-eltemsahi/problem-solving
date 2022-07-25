@@ -4,10 +4,14 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <stack>
+#include <queue>
 
 typedef long long int ll;
 typedef std::vector<int> vi;
 using std::pair;
+using std::queue;
+using std::stack;
 using std::string;
 using std::vector;
 #define FORN(i, n) for (int i = 0; i < (n); i++)
