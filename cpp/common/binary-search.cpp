@@ -39,3 +39,19 @@ int upper_bound(std::vector<int>& nums, int target) {
 
   return low < nums.size() && nums[low] == target ? low : -1;
 }
+
+int get_peak_index(vector<int>& nums) {
+  int l = 0, h = nums.size() - 1;
+  if (nums[h] > nums[l]) return h;
+
+  while (l < h - 1) {
+    int mid = (l + h) / 2;
+    if (nums[mid] > nums[h]) {
+      l = mid;
+    } else {
+      h = mid;
+    }
+  }
+
+  return h - 1;
+}
