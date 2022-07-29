@@ -17,3 +17,11 @@ void print_vector_vector_int(const std::vector<std::vector<int>>& input) {
     std::cout << "\n";
   }
 }
+
+template <typename T>
+void print_vector(const std::vector<T>& input) {
+  for (int i = 0; i < input.size(); i++) {
+    std::cout << input[i];
+    if (i < input.size() - 1) std::cout << ", ";
+  }
+}
