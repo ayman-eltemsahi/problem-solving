@@ -343,3 +343,6 @@ healthchecksdb
 
 # CMake files
 build
+
+# Rust
+rust/*/target
