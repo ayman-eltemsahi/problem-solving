@@ -1,4 +1,4 @@
-#if defined(RUNNING_LOCALLY)
+#ifdef RUNNING_LOCALLY
 #include "local-stuff.hpp"
 #endif
 
@@ -9,7 +9,7 @@ class Solution {
   }
 };
 
-#if defined(RUNNING_LOCALLY)
+#ifdef RUNNING_LOCALLY
 int main() {
   Solution s;
   // assert(s.test() == true);
