@@ -29,6 +29,7 @@ name = "leetcode"
 version = "0.0.0"
 dependencies = [
  "priority-queue",
+ "sorted-vec",
 ]
 
 [[package]]
@@ -40,3 +41,9 @@ dependencies = [
  "autocfg",
  "indexmap",
 ]
+
+[[package]]
+name = "sorted-vec"
+version = "0.8.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "da8edb37c24177a4d09d502f3755ef679986654742af1a50a6e4f9b68108d366"
