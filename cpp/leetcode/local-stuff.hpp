@@ -13,6 +13,7 @@
 #include <map>
 #include <set>
 
+#include "common.hpp"
 #include "utils/print-vector.hpp"
 #include "utils/read-vector.hpp"
 
