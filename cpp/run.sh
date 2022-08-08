@@ -4,5 +4,5 @@ set -e
 
 clear
 make
-./binary < ../input
+time ./binary < ../input
 # ./binary < ../input > ../output.txt

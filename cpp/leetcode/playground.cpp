@@ -12,6 +12,6 @@ class Solution {
 #ifdef RUNNING_LOCALLY
 int main() {
   Solution s;
-  // assert(s.test() == true);
+  Input input;
 }
 #endif
