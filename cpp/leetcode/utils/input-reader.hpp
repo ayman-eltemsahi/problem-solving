@@ -54,6 +54,10 @@ class Input {
     return read_vector_int(this->next_string());
   }
 
+  std::vector<std::string> next_vector_string() {
+    return read_vector_string(this->next_string());
+  }
+
   std::vector<std::vector<int>> next_vector_vector_int() {
     return read_vector_vector_int(this->next_string());
   }
@@ -65,7 +69,11 @@ class Input {
     }
 
     if (std::is_same<T, std::string>()) {
-      return this->next_string();
+       return this->next_string();
+    }
+
+    if (std::is_same<T, std::vector<std::string>>()) {
+      return this->next_vector_string();
     }
 
     if (std::is_same<T, std::vector<int>>()) {

@@ -47,3 +47,27 @@ std::vector<std::vector<int>> read_vector_vector_int(const std::string& input) {
 
   return res;
 }
+
+std::vector<std::string> read_vector_string(const std::string& input) {
+  auto n = input.length();
+
+  auto copy = input;
+  if (copy.front() == '[') {
+    copy = copy.substr(1, n);
+    n--;
+  }
+
+  if (copy.back() == ']') {
+    copy = copy.substr(0, n - 1);
+    n--;
+  }
+
+  auto values = split_string(copy, ",");
+  for (int i = 0; i < values.size(); i++) {
+    if (values[i].length() > 2 && values[i][0] == '"' && values[i].back() == '"') {
+      values[i] = values[i].substr(1, values[i].length() - 2);
+    }
+  }
+
+  return values;
+}
