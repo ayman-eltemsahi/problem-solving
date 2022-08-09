@@ -1,4 +1,6 @@
-["What","must","be","acknowledgment","shall","be"]
-16
-["Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"]
-20
+["rook","queen","bishop"]
+[[1,1],[3,4],[4,3]]
+["queen"]
+[[1,1]]
+["bishop"]
+[[4,3]]

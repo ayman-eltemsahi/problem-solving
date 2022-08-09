@@ -1,5 +1,5 @@
 BasedOnStyle: Google
 IndentWidth: 2
-ColumnLimit: 100
+ColumnLimit: 110
 SortIncludes: false
-AllowShortFunctionsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: true
