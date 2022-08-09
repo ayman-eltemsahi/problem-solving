@@ -2,44 +2,44 @@
 #include "local-stuff.hpp"
 #endif
 
-// rook queen bishop
-
-class chess_move {
- public:
+struct point {
   int x, y;
-  chess_move() : x(0), y(0) {}
-  chess_move(int a, int b) : x(a), y(b) {}
-  bool eq(chess_move& other) { return x == other.x && y == other.y; }
+  bool operator==(const point& other) { return x == other.x && y == other.y; }
+  bool operator!=(const point& other) { return x != other.x || y != other.y; }
+  void moveTowards(const point& other) {
+    x += x == other.x ? 0 : other.x > x ? 1 : -1;
+    y += y == other.y ? 0 : other.y > y ? 1 : -1;
+  }
 };
+
+vector<point> horizontalSteps = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+vector<point> diagonalSteps = {{1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
 
 class Solution {
  public:
-  int res = 0, n;
-  vector<vector<chess_move>> moves;
-  vector<string> pieces;
-  vector<chess_move> positions;
+  vector<point> positions;
 
-  vector<chess_move> get_moves(string piece, int x, int y) {
-    vector<chess_move> res{{x, y}};
+  vector<point> getMoves(string piece, point p) {
+    vector<point> res{{p.x, p.y}};
 
     if (piece == "rook" || piece == "queen") {
-      for (int k = -8; k < 8; k++) {
-        int i = x + k;
-        if (i >= 0 && i != x && i < 8) res.push_back({i, y});
-        int j = y + k;
-        if (j >= 0 && j != y && j < 8) res.push_back({x, j});
+      for (auto step : horizontalSteps) {
+        int i = p.x + step.x, j = p.y + step.y;
+        while (i >= 0 && i < 8 && j >= 0 && j < 8) {
+          res.push_back({i, j});
+          i += step.x;
+          j += step.y;
+        }
       }
     }
 
     if (piece == "bishop" || piece == "queen") {
-      for (int l = -10; l < 10; l++) {
-        int i = x + l;
-        if (i >= 0 && i < 8) {
-          int j = y + l;
-          if (j >= 0 && j < 8 && (i != x || j != y)) res.push_back({i, j});
-
-          j = y - l;
-          if (l != 0 && j >= 0 && j < 8 && (i != x || j != y)) res.push_back({i, j});
+      for (auto step : diagonalSteps) {
+        int i = p.x + step.x, j = p.y + step.y;
+        while (i >= 0 && i < 8 && j >= 0 && j < 8) {
+          res.push_back({i, j});
+          i += step.x;
+          j += step.y;
         }
       }
     }
@@ -47,50 +47,45 @@ class Solution {
     return res;
   }
 
-  bool is_valid_combination(vector<chess_move>& dist) {
-    vector<chess_move> pos = positions;
+  bool willIntersect(point a, point a2, point b, point b2) {
+    // move each start position towards the end and see if they intersect at any point
+    while (a != a2 || b != b2) {
+      a.moveTowards(a2);
+      b.moveTowards(b2);
 
-    while (true) {
-      bool all_reached = true;
-      for (int i = 0; i < n; i++) {
-        if (dist[i].x != pos[i].x) pos[i].x += dist[i].x > pos[i].x ? 1 : -1;
-        if (dist[i].y != pos[i].y) pos[i].y += dist[i].y > pos[i].y ? 1 : -1;
-
-        for (int j = 0; j < i; j++)
-          if (pos[i].eq(pos[j])) return false;
-
-        all_reached = all_reached && pos[i].eq(dist[i]);
-      }
-
-      if (all_reached) break;
+      if (a == b) return true;
     }
+
+    return false;
+  }
+
+  bool isValidDestination(vector<point>& dest) {
+    for (int i = 0; i < dest.size(); i++)
+      for (int j = 0; j < i; j++)
+        if (willIntersect(positions[i], dest[i], positions[j], dest[j])) return false;
 
     return true;
   }
 
-  void check(int i, vector<chess_move>& chosen) {
-    if (i == n) {
-      if (is_valid_combination(chosen)) res++;
-      return;
+  int dfs(int i, vector<string>& pieces, vector<point>& destination) {
+    if (i == pieces.size()) {
+      return isValidDestination(destination) ? 1 : 0;
     }
 
-    for (auto move : moves[i]) {
-      chosen[i] = move;
-      check(i + 1, chosen);
+    int res = 0;
+    for (auto move : getMoves(pieces[i], positions[i])) {
+      destination[i] = move;
+      res += dfs(i + 1, pieces, destination);
     }
-  }
-
-  int countCombinations(vector<string>& pieces, vector<vector<int>>& positions) {
-    this->n = pieces.size();
-    this->pieces = pieces;
-    for (auto p : positions) this->positions.push_back({p[0] - 1, p[1] - 1});
-    moves = vector<vector<chess_move>>(n);
-    for (int i = 0; i < n; i++) moves[i] = get_moves(pieces[i], positions[i][0] - 1, positions[i][1] - 1);
-
-    vector<chess_move> chosen(n);
-    check(0, chosen);
 
     return res;
+  }
+
+  int countCombinations(vector<string>& pieces, vector<vector<int>>& pos) {
+    for (int i = 0; i < pieces.size(); i++) positions.push_back({pos[i][0] - 1, pos[i][1] - 1});
+
+    vector<point> destination(pieces.size());
+    return dfs(0, pieces, destination);
   }
 };
 
@@ -102,5 +97,6 @@ int main() {
   auto pos = input.next_vector_vector_int();
   auto res = s.countCombinations(pieces, pos);
   LOG(res);
+  assert(res == 194492);
 }
 #endif
