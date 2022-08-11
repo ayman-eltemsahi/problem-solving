@@ -36,6 +36,7 @@ using std::unordered_set;
 using std::vector;
 #define FORN(i, n) for (int i = 0; i < (n); i++)
 #define FORN1(i, n) for (int i = 1; i < (n); i++)
+#define DEBUG(a) std::cout << #a << ": " << (a) << "\n"
 #define LOG(a) std::cout << (a) << "\n"
 #define LOG2(a, b) std::cout << (a) << ", " << (b) << "\n"
 #define LOG3(a, b, c) std::cout << (a) << ", " << (b) << ", " << (c) << "\n"
