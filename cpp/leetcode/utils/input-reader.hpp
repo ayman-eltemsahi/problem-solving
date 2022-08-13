@@ -50,6 +50,10 @@ class Input {
     return stoi(this->next_string());
   }
 
+  bool next_bool() {
+    return this->next_string() == "true";
+  }
+
   std::vector<int> next_vector_int() {
     return read_vector_int(this->next_string());
   }
