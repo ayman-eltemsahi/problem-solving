@@ -1,7 +1,11 @@
 #pragma once
 #include <string>
 
-int read_int(const std::string& value) {
+namespace utils {
+
+using std::string;
+
+int read_int(const string& value) {
   int res = 0;
   bool neg = false;
 
@@ -15,3 +19,5 @@ int read_int(const std::string& value) {
 
   return res * (neg ? -1 : 1);
 }
+
+}  // namespace utils

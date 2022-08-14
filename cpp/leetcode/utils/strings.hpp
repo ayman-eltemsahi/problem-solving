@@ -2,11 +2,16 @@
 #include <string>
 #include <vector>
 
-std::vector<std::string> split_string(const std::string& value, std::string delimiter) {
+namespace utils {
+
+using std::string;
+using std::vector;
+
+vector<string> split_string(const string& value, string delimiter) {
   size_t pos = 0;
-  std::string copy = value;
-  std::vector<std::string> res;
-  while ((pos = copy.find(delimiter)) != std::string::npos) {
+  string copy = value;
+  vector<string> res;
+  while ((pos = copy.find(delimiter)) != string::npos) {
     res.push_back(copy.substr(0, pos));
     copy.erase(0, pos + delimiter.size());
   }
@@ -14,3 +19,5 @@ std::vector<std::string> split_string(const std::string& value, std::string deli
 
   return res;
 }
+
+}  // namespace utils

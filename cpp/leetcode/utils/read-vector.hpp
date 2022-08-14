@@ -3,9 +3,14 @@
 #include "strings.hpp"
 #include "read-number.hpp"
 
+namespace utils {
+
+using std::string;
+using std::vector;
+
 // [[1,3,5,7],[10,11,16,20],[23,30,34,60]]
 
-std::vector<int> read_vector_int(const std::string& input) {
+vector<int> read_vector_int(const string& input) {
   auto n = input.length();
 
   auto copy = input;
@@ -20,7 +25,7 @@ std::vector<int> read_vector_int(const std::string& input) {
   }
 
   const auto numbers = split_string(copy, ",");
-  std::vector<int> res;
+  vector<int> res;
   for (const auto num : numbers) {
     res.push_back(read_int(num));
   }
@@ -28,7 +33,7 @@ std::vector<int> read_vector_int(const std::string& input) {
   return res;
 }
 
-std::vector<std::vector<int>> read_vector_vector_int(const std::string& input) {
+vector<vector<int>> read_vector_vector_int(const string& input) {
   auto n = input.length();
 
   auto copy = input;
@@ -39,7 +44,7 @@ std::vector<std::vector<int>> read_vector_vector_int(const std::string& input) {
 
   const auto split = split_string(copy, "],");
 
-  std::vector<std::vector<int>> res;
+  vector<vector<int>> res;
   res.reserve(split.size());
   for (const auto item : split) {
     res.push_back(read_vector_int(item));
@@ -48,7 +53,7 @@ std::vector<std::vector<int>> read_vector_vector_int(const std::string& input) {
   return res;
 }
 
-std::vector<std::string> read_vector_string(const std::string& input) {
+vector<string> read_vector_string(const string& input) {
   auto n = input.length();
 
   auto copy = input;
@@ -71,3 +76,5 @@ std::vector<std::string> read_vector_string(const std::string& input) {
 
   return values;
 }
+
+}  // namespace utils

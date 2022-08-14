@@ -1,5 +1,7 @@
 #include <vector>
 
+namespace utils {
+
 int lower_bound(std::vector<int>& nums, int target) {
   int low = 0, high = nums.size();
 
@@ -40,7 +42,7 @@ int upper_bound(std::vector<int>& nums, int target) {
   return low < nums.size() && nums[low] == target ? low : -1;
 }
 
-int get_peak_index(vector<int>& nums) {
+int get_peak_index(std::vector<int>& nums) {
   int l = 0, h = nums.size() - 1;
   if (nums[h] > nums[l]) return h;
 
@@ -55,3 +57,5 @@ int get_peak_index(vector<int>& nums) {
 
   return h - 1;
 }
+
+}  // namespace utils

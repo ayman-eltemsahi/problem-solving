@@ -1,26 +1,22 @@
 #include <math.h>
 
+namespace common {
+
 struct TreeNode {
   int val;
   TreeNode* left;
   TreeNode* right;
-  TreeNode() : val(0), left(nullptr), right(nullptr) {
-  }
-  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {
-  }
-  TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {
-  }
+  TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
 };
 
 struct ListNode {
   int val;
   ListNode* next;
-  ListNode() : val(0), next(nullptr) {
-  }
-  ListNode(int x) : val(x), next(nullptr) {
-  }
-  ListNode(int x, ListNode* next) : val(x), next(next) {
-  }
+  ListNode() : val(0), next(nullptr) {}
+  ListNode(int x) : val(x), next(nullptr) {}
+  ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
 class Trie {
@@ -33,17 +29,11 @@ class Trie {
     memset(this->children, 0, sizeof(this->children));
   }
 
-  void insert(std::string word) {
-    insert_internal(word, 0);
-  }
+  void insert(std::string word) { insert_internal(word, 0); }
 
-  bool search(std::string word) {
-    return this->search_internal(word, 0, true);
-  }
+  bool search(std::string word) { return this->search_internal(word, 0, true); }
 
-  bool startsWith(std::string prefix) {
-    return this->search_internal(prefix, 0, false);
-  }
+  bool startsWith(std::string prefix) { return this->search_internal(prefix, 0, false); }
 
  private:
   void insert_internal(const std::string& word, int i) {
@@ -94,3 +84,8 @@ int gcd(int a, int b) {
   }
   return a;
 }
+
+int lcm(int a, int b) { return (a * b) / gcd(a, b); }
+int lowest_common_multiple(int a, int b) { return (a * b) / gcd(a, b); }
+
+}  // namespace common
