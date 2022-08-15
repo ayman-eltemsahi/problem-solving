@@ -15,6 +15,6 @@ int main() {
   utils::Input input;
   auto vec = input.next_vector_int();
   // auto result = s.test();
-  // DEBUG(result);
+  // utils::expect_equal(result, input.next_int());
 }
 #endif
