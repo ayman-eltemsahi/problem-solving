@@ -21,6 +21,7 @@
 typedef long long int ll;
 typedef std::vector<int> vi;
 using std::abs;
+using std::cout;
 using std::map;
 using std::max;
 using std::min;
