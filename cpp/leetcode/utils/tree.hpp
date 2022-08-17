@@ -10,6 +10,8 @@ using std::string;
 using std::to_string;
 using std::vector;
 
+const auto nil = "null";
+
 struct TreeNode {
   int val;
   TreeNode* left;
@@ -19,7 +21,7 @@ struct TreeNode {
   TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
 };
 
-vector<string> serialize_tree(TreeNode* root) {
+vector<string> serialize(TreeNode* root) {
   if (!root) return {};
   vector<string> res;
   queue<TreeNode*> q;
@@ -30,7 +32,7 @@ vector<string> serialize_tree(TreeNode* root) {
     q.pop();
 
     if (t == nullptr) {
-      res.push_back("null");
+      res.push_back(nil);
     } else {
       res.push_back(to_string(t->val));
       q.push(t->left);
@@ -38,7 +40,25 @@ vector<string> serialize_tree(TreeNode* root) {
     }
   }
 
-  while (!res.empty() && res.back() == "null") res.pop_back();
+  while (!res.empty() && res.back() == nil) res.pop_back();
   return res;
 }
+
+TreeNode* deserialize(string str) {
+  auto v = utils::read_vector_string(str);
+  if (v.empty()) return NULL;
+  queue<TreeNode*> q;
+  auto root = new TreeNode(stoi(v[0]));
+  q.push(root);
+  for (int i = 1, N = v.size(); i < N;) {
+    auto node = q.front();
+    q.pop();
+    if (v[i] != nil) q.push(node->left = new TreeNode(stoi(v[i])));
+    ++i;
+    if (i < N && v[i] != nil) q.push(node->right = new TreeNode(stoi(v[i])));
+    ++i;
+  }
+  return root;
+}
+
 }  // namespace tree_utils
