@@ -42,7 +42,7 @@ class Input {
     if (!this->hasNext()) {
       throw("Input is empty, no more lines");
     }
-    return this->file[index++];
+    return strip_quotes(this->file[index++]);
   }
 
   int next_int() { return stoi(this->next_string()); }
@@ -65,6 +65,15 @@ class Input {
   void read_file(string filename) {
     this->file = read_input(filename);
     this->index = 0;
+  }
+
+  string strip_quotes(const string& input) {
+    if (input.empty()) return input;
+
+    string output = (input[0] == '"' || input[0] == '\'') ? input.substr(1) : input;
+    if (!output.empty() && (output.back() == '"' || output.back() == '\'')) output.pop_back();
+
+    return output;
   }
 };
 }  // namespace utils
