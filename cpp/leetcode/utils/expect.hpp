@@ -24,6 +24,7 @@ void expect_equal(const string& result, Input& in) {
   assert(result == correct);
 }
 
+void expect_equal(bool result, Input& in) { expect_equal(string(result ? "true" : "false"), in); }
 void expect_equal(int result, Input& in) { expect_equal(std::to_string(result), in); }
 void expect_equal(long long result, Input& in) { expect_equal(std::to_string(result), in); }
 void expect_equal(const vector<int>& result, Input& in) {
