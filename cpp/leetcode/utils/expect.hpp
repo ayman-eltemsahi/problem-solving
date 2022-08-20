@@ -31,5 +31,9 @@ void expect_equal(const vector<int>& result, Input& in) {
   string v = "[" + join_vector(result) + "]";
   expect_equal(v, in);
 }
+void expect_equal(const vector<long long>& result, Input& in) {
+  string v = "[" + join_vector(result) + "]";
+  expect_equal(v, in);
+}
 
 }  // namespace utils
