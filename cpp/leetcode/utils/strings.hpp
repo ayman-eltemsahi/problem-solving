@@ -20,4 +20,14 @@ vector<string> split_string(const string& value, string delimiter) {
   return res;
 }
 
+string trim_string(const string& value) {
+  int i = 0, j = value.size() - 1;
+  while (i < value.size() && value[i] == ' ') i++;
+  while (j >= 0 && value[j] == ' ') j--;
+  if (i > j) return "";
+
+
+  return value.substr(i, j - i + 1);
+}
+
 }  // namespace utils
