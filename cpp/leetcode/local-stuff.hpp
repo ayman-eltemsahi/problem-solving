@@ -3,6 +3,7 @@
 #include <numeric>
 #include <cassert>
 #include <cctype>
+#include <climits>
 #include <iostream>
 #include <sstream>
 #include <vector>
