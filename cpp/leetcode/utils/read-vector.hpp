@@ -72,9 +72,11 @@ vector<string> read_vector_string(const string& input) {
 
   auto values = split_string(copy, ",");
   for (int i = 0; i < values.size(); i++) {
-    if (values[i].length() > 2 && values[i][0] == '"' && values[i].back() == '"') {
-      values[i] = values[i].substr(1, values[i].length() - 2);
+    auto tmp = trim_string(values[i]);
+    if (tmp.length() > 2 && tmp[0] == '"' && tmp.back() == '"') {
+      tmp = tmp.substr(1, tmp.length() - 2);
     }
+    values[i] = tmp;
   }
 
   return values;
