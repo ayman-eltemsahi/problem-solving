@@ -1,4 +1,5 @@
 #pragma once
+#include <array>
 #include <algorithm>
 #include <numeric>
 #include <cassert>
