@@ -52,4 +52,7 @@ using std::vector;
 #define LOG3(a, b, c) std::cout << (a) << ", " << (b) << ", " << (c) << "\n"
 #define LOG4(a, b, c, d) std::cout << (a) << ", " << (b) << ", " << (c) << ", " << (d) << "\n"
 
+using common::ListNode;
+using tree_utils::TreeNode;
+
 // const int mod = (int)(1e9 + 7);
