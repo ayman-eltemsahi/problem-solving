@@ -44,7 +44,7 @@ vector<string> serialize(TreeNode* root) {
   return res;
 }
 
-TreeNode* deserialize(string str) {
+TreeNode* deserialize(const string& str) {
   auto v = utils::read_vector_string(str);
   if (v.empty()) return NULL;
   queue<TreeNode*> q;
