@@ -40,10 +40,10 @@ void print_vector_vector(const vector<vector<T>>& input) {
 }
 
 template <class T>
-std::string join_vector(const std::vector<T>& vec, std::string sep = ",") {
+std::string join_vector(const std::vector<T>& vec, std::string sep = ",", std::string around = "") {
   std::stringstream ss;
   for (size_t i = 0; i < vec.size(); i++) {
-    ss << vec[i];
+    ss << around << vec[i] << around;
     if (i != vec.size() - 1) {
       ss << sep;
     }

@@ -82,4 +82,25 @@ vector<string> read_vector_string(const string& input) {
   return values;
 }
 
+vector<vector<string>> read_vector_vector_string(const string& input) {
+  auto n = input.length();
+
+  auto copy = trim_string(input);
+  if (copy.front() == '[' && copy.back() == ']') {
+    copy = copy.substr(1, n - 2);
+    n = copy.length();
+  }
+  copy = trim_string(copy);
+
+  const auto split = split_string(copy, "],");
+
+  vector<vector<string>> res;
+  res.reserve(split.size());
+  for (const auto item : split) {
+    res.push_back(read_vector_string(trim_string(item)));
+  }
+
+  return res;
+}
+
 }  // namespace utils

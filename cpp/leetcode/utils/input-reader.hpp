@@ -61,6 +61,10 @@ class Input {
     return read_vector_vector_int(this->next_string());
   }
 
+  vector<vector<string>> next_vector_vector_string() {
+    return read_vector_vector_string(this->next_string());
+  }
+
  private:
   void read_file(string filename) {
     this->file = read_input(filename);

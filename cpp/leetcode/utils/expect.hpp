@@ -39,5 +39,17 @@ void expect_equal(const vector<string>& result, Input& in) {
   string v = "[" + join_vector(result) + "]";
   expect_equal(v, in);
 }
+void expect_equal(const vector<vector<int>>& result, Input& in) {
+  vector<string> tmp;
+  for (auto&& item : result) tmp.push_back("[" + join_vector(item) + "]");
+  string v = "[" + join_vector(tmp) + "]";
+  expect_equal(v, in);
+}
+void expect_equal(const vector<vector<string>>& result, Input& in) {
+  vector<string> tmp;
+  for (auto&& item : result) tmp.push_back("[" + join_vector(item, ",", "\"") + "]");
+  string v = "[" + join_vector(tmp) + "]";
+  expect_equal(v, in);
+}
 
 }  // namespace utils
