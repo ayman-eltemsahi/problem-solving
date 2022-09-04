@@ -2,4 +2,4 @@
 
 set -e
 
-./binary < ../input
+./binary < ../input.txt

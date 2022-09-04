@@ -10,7 +10,7 @@ namespace utils {
 using std::string;
 using std::vector;
 
-vector<string> read_input(string filename = "input") {
+vector<string> read_input(const char* filename) {
   std::ifstream infile(filename);
   string line;
   vector<string> result;
@@ -26,8 +26,7 @@ class Input {
   int index = 0;
 
  public:
-  Input() { this->read_file("../input"); }
-  Input(string filename) { this->read_file(filename); }
+  Input(const char* filename) { this->read_file(filename); }
 
   bool hasNext() { return this->index < this->file.size(); }
 
@@ -66,7 +65,7 @@ class Input {
   }
 
  private:
-  void read_file(string filename) {
+  void read_file(const char* filename) {
     this->file = read_input(filename);
     this->index = 0;
   }
