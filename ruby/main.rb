@@ -3,7 +3,7 @@
 def array_nesting(nums)
   n = nums.length
   res = 0
-  for i in 0..(n - 1) do
+  n.times do |i|
     next unless nums[i] >= 0
 
     len = 0
@@ -16,7 +16,7 @@ def array_nesting(nums)
     end
 
     res = [res, len].max
-    end
+  end
 
   res
 end
