@@ -10,16 +10,16 @@ class UnionFind
   end
 
   def find(x)
-    return x if parent[x] == x
+    return x if @parent[x] == x
 
-    parent[x] = find(parent[x])
-    parent[x]
+    @parent[x] = find(@parent[x])
+    @parent[x]
   end
 
-  def connect(x, y)
+  def union(x, y)
     x_p = find(x)
     y_p = find(y)
-    parent[x_p] = y_p
+    @parent[x_p] = y_p
     y_p
   end
 end
