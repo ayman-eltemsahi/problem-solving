@@ -37,17 +37,3 @@ class MaxSegmentTree
     end
   end
 end
-
-# @param {Integer[]} nums
-# @param {Integer} k
-# @return {Integer}
-def length_of_lis(nums, k)
-  n = 100_001
-  tree = MaxSegmentTree.new(n + 1)
-  nums.each do |i|
-    curr = 1 + tree.query([0, i - k].max, i)
-    tree.update(i, curr)
-  end
-
-  tree.query(0, n)
-end
