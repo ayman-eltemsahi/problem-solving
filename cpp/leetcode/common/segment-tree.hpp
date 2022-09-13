@@ -11,7 +11,44 @@ class MaxSegmentTree {
  public:
   int n;
   vector<int> tree;
-  MaxSegmentTree(int n_) : n(n_) {
+  MaxSegmentTree(int n_) : n(n_) { tree = vector<int>(2 * n_); }
+
+  int max_value() { return query(0, n - 1); }
+
+  int query(int l, int r) {
+    l += n;
+    r += n;
+    int res = 0;
+    while (l < r) {
+      if (l & 1) {
+        res = max(res, tree[l]);
+        l += 1;
+      }
+      if (r & 1) {
+        r -= 1;
+        res = max(res, tree[r]);
+      }
+      l >>= 1;
+      r >>= 1;
+    }
+    return res;
+  }
+
+  void update(int i, int val) {
+    i += n;
+    tree[i] = val;
+    while (i > 1) {
+      i >>= 1;
+      tree[i] = max(tree[i * 2], tree[i * 2 + 1]);
+    }
+  }
+};
+
+class MaxSegmentTreeRecursive {
+ public:
+  int n;
+  vector<int> tree;
+  MaxSegmentTreeRecursive(int n_) : n(n_) {
     int size = (int)(ceil(log2(n)));
     size = (2 * pow(2, size)) - 1;
     tree = vector<int>(size);

@@ -36,7 +36,7 @@ void expect_equal(const vector<long long>& result, Input& in) {
   expect_equal(v, in);
 }
 void expect_equal(const vector<string>& result, Input& in) {
-  string v = "[" + join_vector(result) + "]";
+  string v = "[" + join_vector(result, ",", "\"") + "]";
   expect_equal(v, in);
 }
 void expect_equal(const vector<vector<int>>& result, Input& in) {
