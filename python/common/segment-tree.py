@@ -1,3 +1,4 @@
+# https://codeforces.com/blog/entry/18051
 class MaxSegmentTree:
   def __init__(self, n):
     self.n = n

@@ -7,6 +7,7 @@ namespace common {
 using std::max;
 using std::vector;
 
+// https://codeforces.com/blog/entry/18051
 class MaxSegmentTree {
  public:
   int n;

@@ -1,3 +1,4 @@
+// https://codeforces.com/blog/entry/18051
 class MaxSegmentTree {
   private int n;
   private int[] tree;
