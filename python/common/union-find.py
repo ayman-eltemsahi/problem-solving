@@ -1,3 +1,19 @@
+class UnionFind:
+  def __init__(self, n):
+    self.parent = list(range(0, n))
+
+  def find(self, x):
+    if self.parent[x] == x:
+      return x
+    self.parent[x] = self.find(self.parent[x])
+    return self.parent[x]
+
+  def connect(self, x, y):
+    rootX, rootY = self.find(x), self.find(y)
+    self.parent[rootX] = rootY
+
+    return rootY
+
 class UnionFindRank:
   def __init__(self, n):
     self.parent = list(range(0, n))
@@ -8,11 +24,6 @@ class UnionFindRank:
       return x
     self.parent[x] = self.find(self.parent[x])
     return self.parent[x]
-
-  def is_connected(self, x):
-    if self.rank[self.find(x)] > 1:
-      return 1
-    return 0
 
   def connect(self, x, y):
     rootX, rootY = self.find(x), self.find(y)

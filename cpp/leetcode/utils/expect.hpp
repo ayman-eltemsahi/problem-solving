@@ -11,8 +11,8 @@ const auto RESET = "\033[0m";
 void expect_equal(const string& result, Input& in) {
   const string correct = in.next_string();
   auto color = result == correct ? GREEN : RED;
-  std::cout << color << "Result  :  " << result << RESET << "\n";
-  std::cout << "Correct :  " << correct << "\n";
+  std::cout << color << "Output   :  " << result << RESET << "\n";
+  std::cout << "Expected :  " << correct << "\n";
   std::cout << "\n";
 
   if (result == correct) {
