@@ -13,10 +13,10 @@ class Solution {
 #ifdef RUNNING_LOCALLY
 int main() {
   utils::Input in("../input.txt");
-  while (in.hasNext() && !in.peek().empty()) {
+  while (in.has_next() && !in.peek().empty()) {
     Solution s;
-    auto vec = in.next_vector_int();
-    auto result = s.test(vec);
+    auto a = in.vi();
+    auto result = s.test(a);
     utils::expect_equal(result, in);
   }
 }

@@ -28,41 +28,36 @@ class Input {
  public:
   Input(const char* filename) { this->read_file(filename); }
 
-  bool hasNext() { return this->index < this->file.size(); }
+  bool has_next() { return this->index < this->file.size(); }
 
   string peek() {
-    if (!this->hasNext()) {
+    if (!this->has_next()) {
       throw("Input is empty, no more lines");
     }
     return this->file[index];
   }
 
   string next_string() {
-    if (!this->hasNext()) {
+    if (!this->has_next()) {
       throw("Input is empty, no more lines");
     }
     return strip_quotes(this->file[index++]);
   }
 
-  int next_int() { return stoi(this->next_string()); }
+  int i() { return stoi(this->next_string()); }
+  string s() { return this->next_string(); }
 
-  bool next_bool() {
+  bool b() {
     auto val = this->next_string();
     assert(val == "true" || val == "false");
     return val == "true";
   }
 
-  vector<int> next_vector_int() { return read_vector_int(this->next_string()); }
+  vector<int> vi() { return read_vector_int(this->next_string()); }
+  vector<string> vs() { return read_vector_string(this->next_string()); }
 
-  vector<string> next_vector_string() { return read_vector_string(this->next_string()); }
-
-  vector<vector<int>> next_vector_vector_int() {
-    return read_vector_vector_int(this->next_string());
-  }
-
-  vector<vector<string>> next_vector_vector_string() {
-    return read_vector_vector_string(this->next_string());
-  }
+  vector<vector<int>> vvi() { return read_vector_vector_int(this->next_string()); }
+  vector<vector<string>> vvs() { return read_vector_vector_string(this->next_string()); }
 
  private:
   void read_file(const char* filename) {
