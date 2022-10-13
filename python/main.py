@@ -1,3 +1,6 @@
+from local_stuff import *
+
+
 class MaxSegmentTree:
   def __init__(self, n):
     self.n = n
