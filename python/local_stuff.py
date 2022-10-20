@@ -1,4 +1,4 @@
-from collections import deque
+from collections import deque, defaultdict
 from typing import List, Optional
 from math import floor, ceil, log2
 from heapq import heapify, heappop, heappush
