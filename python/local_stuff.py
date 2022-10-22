@@ -32,3 +32,24 @@ def parseTree(v: List[int]):
       q.append(node.right)
     i += 1
   return root
+
+def serializeTree(root: Optional[TreeNode]):
+  if not root: return []
+  res = []
+  q = deque()
+  q.append(root)
+
+  while q:
+    t = q.popleft()
+
+    if not t:
+      res.append(None)
+    else:
+      res.append(t.val)
+      q.append(t.left)
+      q.append(t.right)
+
+  while res and not res[-1]:
+    res.pop()
+
+  return res
