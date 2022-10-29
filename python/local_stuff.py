@@ -1,12 +1,17 @@
 from collections import deque, defaultdict, Counter
-from typing import List, Optional
+from typing import List, Optional, Tuple
 from math import floor, ceil, log2
 from heapq import heapify, heappop, heappush
+from bisect import bisect_left, bisect_right
 from functools import cache, lru_cache
 
 import sys
 sys.setrecursionlimit(10000)
 
+class ListNode:
+  def __init__(self, val, next = None):
+    self.val = val
+    self.next = next
 
 class TreeNode:
   def __init__(self, x):
