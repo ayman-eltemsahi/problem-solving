@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException; // Import this class to handle errors
-import java.lang.Object;
 import java.util.*;
 import java.util.Scanner;
 
