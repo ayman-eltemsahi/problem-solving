@@ -9,7 +9,7 @@ class FenwickTree {
  public:
   FenwickTree(int sz) : size(sz), tree(sz + 1) {}
 
-  T getSum(int index) {
+  T query(int index) {
     int sum = 0;
     index++;
 
