@@ -28,6 +28,7 @@ typedef long long int ll;
 typedef std::vector<int> vi;
 using std::abs;
 using std::cout;
+using std::get;
 using std::greater;
 using std::map;
 using std::max;
@@ -44,6 +45,7 @@ using std::swap;
 using std::to_string;
 using std::unordered_map;
 using std::unordered_set;
+using std::variant;
 using std::vector;
 #define FORN(i, n) for (int i = 0; i < (n); i++)
 #define FORN1(i, n) for (int i = 1; i < (n); i++)
