@@ -1,0 +1,14 @@
+{
+  "name": "problem-solving",
+  "version": "1.0.0",
+  "description": "Solving problems on hackerRank and leetCode",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha ./tests/ --recursive --timeout=20000 --exit"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.1.0"
+  }
+}
