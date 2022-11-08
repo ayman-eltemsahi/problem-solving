@@ -12,6 +12,19 @@ const buildTree = function(array) {
 }
 
 describe('TraverseBinaryTree', function () {
+  /*
+  [1, 2, 5, 3, 4, 6 ]
+
+       1
+      \
+       2
+        \
+         5
+        /  \
+       3    6
+        \
+         4  
+  */
   describe('preOrder', function () {
     it('should return values pre ordered', function () {
         const tree = buildTree([1, 2, 5, 3, 4, 6 ]);
@@ -19,5 +32,12 @@ describe('TraverseBinaryTree', function () {
         const result = traversal.preOrder(tree);
         expect(result).to.have.ordered.members([1, 2, 5, 3, 4, 6 ])
     });
+
+    it('should return values pre ordered', function () {
+      const tree = buildTree([1, 2, 5, 3, 4, 6 ]);
+      const traversal = new Traversal(tree);
+      const result = traversal.inOrder(tree);
+      expect(result).to.have.ordered.members([1, 2, 3, 4, 5, 6 ])
+  });
   });
 });
