@@ -46,4 +46,11 @@ describe('TraverseBinaryTree', function () {
       const result = traversal.postOrder(tree);
       expect(result).to.have.ordered.members([4, 3, 6, 5, 2, 1])
     });
+
+    it('should return values level ordered', function () {
+      const tree = buildTree([1, 2, 5, 3, 4, 6]);
+      const traversal = new Traversal(tree);
+      const result = traversal.levelOrder(tree);
+      expect(result).to.have.ordered.members([1, 2, 5, 3, 6, 4])
+    });
 });
