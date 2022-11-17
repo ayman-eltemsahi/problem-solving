@@ -12,6 +12,19 @@ struct ListNode {
   ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
+class Interval {
+ public:
+  int start;
+  int end;
+
+  Interval() {}
+
+  Interval(int _start, int _end) {
+    start = _start;
+    end = _end;
+  }
+};
+
 std::vector<int> prime_factors(int n) {
   std::vector<int> factors;
   while (n % 2 == 0) {
