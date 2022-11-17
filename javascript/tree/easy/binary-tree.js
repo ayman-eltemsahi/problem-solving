@@ -24,6 +24,23 @@ class Tree {
     
         return node;
     }
+
+    height(root) {
+        if(root === null) return -1;
+        let leftHight = this.height(root.left) + 1;
+        let rightHight = this.height(root.right) + 1;
+        return Math.max(leftHight, rightHight);
+    }
+
+    height(root) {
+        if(root === null) return -1;
+        let leftHight = this.height(root.left) + 1;
+        let rightHight = this.height(root.right) + 1;
+        return Math.max(leftHight, rightHight);
+    }
 }
 
-module.exports = Tree;
+module.exports = {
+    Tree: Tree,
+    Node: Node
+};
