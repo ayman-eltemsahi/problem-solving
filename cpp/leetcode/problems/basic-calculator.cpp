@@ -2,56 +2,74 @@
 #include "local-stuff.hpp"
 #endif
 
-pair<int, int> read_num(string& s, int i) {
-  int r = 0;
+class Reader {
+ public:
+  int index;
+  string value;
+  Reader(string& s) : index(0), value(s) {}
 
-  while (isdigit(s[i])) {
-    r = r * 10 + s[i] - '0';
-    i++;
-  }
-  return {r, i};
-}
-
-pair<int, int> solve(string& s, int i) {
-  int res = 0;
-  char op = ' ';
-  while (i < s.length()) {
-    char c = s[i];
-    if (c == ' ') {
-      i++;
-    } else if (c == '(') {
-      auto p = solve(s, i + 1);
-      i = p.second;
-      if (op != ' ') {
-        res = op == '+' ? res + p.first : res - p.first;
-        op = ' ';
-      } else {
-        res = p.first;
-      }
-    } else if (c == '+' || c == '-') {
-      op = c;
-      i++;
-    } else if (c == ')') {
-      return {res, i + 1};
-    } else if (isdigit(c)) {
-      auto p = read_num(s, i);
-      i = p.second;
-      if (op != ' ') {
-        res = op == '+' ? res + p.first : res - p.first;
-        op = ' ';
-      } else {
-        res = p.first;
-      }
+  int read_num() {
+    int r = 0;
+    while (index < value.length() && isdigit(value[index])) {
+      r = r * 10 + (value[index++] - '0');
     }
+    return r;
   }
 
-  return {res, i};
-}
+  char is_num() { return isdigit(value[index]); }
+  char read_char() { return value[index++]; }
+  char peek() { return value[index]; }
+  bool has_next() { return index < value.length(); }
+};
 
 class Solution {
  public:
+  int solve(Reader& reader) {
+    int res = 0;
+    char op = ' ';
+
+    while (reader.has_next()) {
+      if (reader.is_num()) {
+        auto p = reader.read_num();
+        if (op != ' ') {
+          res = op == '+' ? res + p : res - p;
+          op = ' ';
+        } else {
+          res = p;
+        }
+        continue;
+      }
+
+      char c = reader.read_char();
+      switch (c) {
+        case '(': {
+          auto p = solve(reader);
+
+          if (op != ' ') {
+            res = op == '+' ? res + p : res - p;
+            op = ' ';
+          } else {
+            res = p;
+          }
+          break;
+        }
+
+        case '+':
+        case '-':
+          op = c;
+          break;
+
+        case ')':
+          return res;
+      }
+    }
+
+    return res;
+  }
+
   int calculate(string s) {
-    return solve(s, 0).first;
+    Reader reader{s};
+    return solve(reader);
   }
 };
 
