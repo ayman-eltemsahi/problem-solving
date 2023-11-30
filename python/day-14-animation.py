@@ -2,6 +2,11 @@ import time
 from read_input import *
 from local_stuff import *
 
+lines = [
+  '498,4 -> 498,6 -> 496,6',
+  '503,4 -> 502,4 -> 502,9 -> 494,9'
+]
+
 print('\033c')
 grid = [[False] * 200 for _ in range(1200)]
 
@@ -58,7 +63,7 @@ def drop():
     printAt(x, y, f'\033[32m\033[1mo\033[0m')
     printAt(500, 0, f'\033[34m\033[7m+\033[0m')
     sys.stdout.flush()
-    time.sleep(0.1)
+    time.sleep(0.0001)
     if not found:
       grid[x][y] = True
       printAt(x, y, f'\033[33m\033[1mo\033[0m')
