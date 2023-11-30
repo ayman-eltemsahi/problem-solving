@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 3.21)
 
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+
 add_definitions(-DRUNNING_LOCALLY)
 
 
 project(problem-solving)
-
 
 list(APPEND INPUT_FILES
   "hackerrank/utils.hpp"
@@ -23,7 +24,7 @@ list(APPEND INPUT_FILES
   # "leetcode/playground.cpp"
 )
 
-add_executable (binary ${INPUT_FILES})
+add_executable (binary ${INPUT_FILES} )
 
 
 # add_custom_command(

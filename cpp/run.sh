@@ -9,5 +9,6 @@ echo ""
 echo "-----------------"
 echo ""
 
-time ./binary <../input.txt
+./binary
+# time ./binary <../input.txt
 # ./binary < ../input.txt > ../output.txt
