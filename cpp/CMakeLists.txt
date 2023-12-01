@@ -4,6 +4,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 add_definitions(-DRUNNING_LOCALLY)
+# add_definitions(-DBENCHMARK)
 
 
 project(problem-solving)
