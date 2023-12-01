@@ -1,12 +1,14 @@
 cmake_minimum_required(VERSION 3.21)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 add_definitions(-DRUNNING_LOCALLY)
 
 
 project(problem-solving)
+
+include_directories("leetcode")
 
 list(APPEND INPUT_FILES
   "hackerrank/utils.hpp"
@@ -18,7 +20,7 @@ list(APPEND INPUT_FILES
   # "hackerrank/extremum-permutations.cpp"
 
 
-  "leetcode/playground.cpp"
+  "advent-of-code/2023/day-01.cpp"
 
   # "leetcode/making-file-names-unique.cpp"
   # "leetcode/playground.cpp"
