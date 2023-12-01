@@ -1,0 +1,8 @@
+[package]
+name = "advent-of-code"
+version = "0.0.0"
+
+
+[dependencies]
+priority-queue = "1.2.3"
+sorted-vec = "0.8.0"
