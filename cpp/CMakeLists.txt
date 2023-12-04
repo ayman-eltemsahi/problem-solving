@@ -10,6 +10,7 @@ add_definitions(-DRUNNING_LOCALLY)
 project(problem-solving)
 
 include_directories("leetcode")
+include_directories("advent-of-code")
 
 list(APPEND INPUT_FILES
   "hackerrank/utils.hpp"
@@ -21,7 +22,7 @@ list(APPEND INPUT_FILES
   # "hackerrank/extremum-permutations.cpp"
 
 
-  "advent-of-code/2023/day-03.cpp"
+  "advent-of-code/2023/day-04.cpp"
 
   # "leetcode/making-file-names-unique.cpp"
   # "leetcode/playground.cpp"
