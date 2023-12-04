@@ -61,7 +61,6 @@ class AdventOfCodeSolverDay04 : AdventOfCodeSolver {
 
   ll get_wins(const string &line) {
     auto card = utils::split_string(line, ": ");
-    auto id = stoi(card[0].substr(5));
 
     auto winning = read_numbers(card[1], 0);
     auto mine = read_numbers(card[1], 1);
