@@ -1,7 +1,7 @@
 #include "local-stuff.hpp"
 #include "aoc-common.hpp"
 
-class AdventOfCodeSolverDay04 : AdventOfCodeSolver {
+class AdventOfCodeSolverDay04 : public AdventOfCodeSolver {
  public:
   ll first_part() {
     std::ifstream infile("../input.txt");
@@ -13,7 +13,7 @@ class AdventOfCodeSolverDay04 : AdventOfCodeSolver {
       if (line.empty()) continue;
 
       ll wins = get_wins(line);
-      result += 1 << (wins - 1);
+      result += wins ? 1 << (wins - 1) : 0;
     }
 
     return result;
@@ -76,18 +76,21 @@ class AdventOfCodeSolverDay04 : AdventOfCodeSolver {
 };
 
 int main() {
-  auto start = std::chrono::high_resolution_clock::now();
-
   auto solver = AdventOfCodeSolverDay04{};
-  int first = solver.first_part();
-  int second = solver.second_part();
+  solver.solve_first(20667);
+  solver.solve_second(5833065);
+  // auto start = std::chrono::high_resolution_clock::now();
 
-  auto finish = std::chrono::high_resolution_clock::now();
-  auto diff = std::chrono::duration_cast<std::chrono::microseconds>(finish - start).count();
-  printf("Reuslt     : \x1b[32m%d\x1b[0m\n", first);
-  printf("Correct    : \x1b[32m%d\x1b[0m\n", 20667);
-  printf("Reuslt     : \x1b[32m%d\x1b[0m\n", second);
-  printf("Correct    : \x1b[32m%d\x1b[0m\n", 5833065);
-  assert(second == 5833065);
-  printf("Time       : \x1b[32m%lf\x1b[0m ms\n", diff / 1000.0);
+  // auto solver = AdventOfCodeSolverDay04{};
+  // int first = solver.first_part();
+  // int second = solver.second_part();
+
+  // auto finish = std::chrono::high_resolution_clock::now();
+  // auto diff = std::chrono::duration_cast<std::chrono::microseconds>(finish - start).count();
+  // printf("Reuslt     : \x1b[32m%d\x1b[0m\n", first);
+  // printf("Correct    : \x1b[32m%d\x1b[0m\n", 20667);
+  // printf("Reuslt     : \x1b[32m%d\x1b[0m\n", second);
+  // printf("Correct    : \x1b[32m%d\x1b[0m\n", 5833065);
+  // assert(second == 5833065);
+  // printf("Time       : \x1b[32m%lf\x1b[0m ms\n", diff / 1000.0);
 }
