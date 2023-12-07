@@ -79,18 +79,4 @@ int main() {
   auto solver = AdventOfCodeSolverDay04{};
   solver.solve_first(20667);
   solver.solve_second(5833065);
-  // auto start = std::chrono::high_resolution_clock::now();
-
-  // auto solver = AdventOfCodeSolverDay04{};
-  // int first = solver.first_part();
-  // int second = solver.second_part();
-
-  // auto finish = std::chrono::high_resolution_clock::now();
-  // auto diff = std::chrono::duration_cast<std::chrono::microseconds>(finish - start).count();
-  // printf("Reuslt     : \x1b[32m%d\x1b[0m\n", first);
-  // printf("Correct    : \x1b[32m%d\x1b[0m\n", 20667);
-  // printf("Reuslt     : \x1b[32m%d\x1b[0m\n", second);
-  // printf("Correct    : \x1b[32m%d\x1b[0m\n", 5833065);
-  // assert(second == 5833065);
-  // printf("Time       : \x1b[32m%lf\x1b[0m ms\n", diff / 1000.0);
 }
