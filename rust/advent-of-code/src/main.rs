@@ -4,8 +4,9 @@
 // mod aoc_2023_day_04;
 // mod aoc_2023_day_05;
 // mod aoc_2023_day_06;
-mod aoc_2023_day_07;
+// mod aoc_2023_day_07;
+mod aoc_2023_day_08;
 
 fn main() {
-  aoc_2023_day_07::run();
+  aoc_2023_day_08::run();
 }
