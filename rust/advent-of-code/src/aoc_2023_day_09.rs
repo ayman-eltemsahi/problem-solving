@@ -51,5 +51,5 @@ pub fn run() {
   println!("Correct: {}", 1152);
   assert_eq!(second, 1152);
 
-  println!("Duration: {} ms", duration.as_micros() as f64 / 1000.0);
+  println!("Duration: {} μs", duration.as_micros() as f64);
 }

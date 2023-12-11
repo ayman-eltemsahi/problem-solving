@@ -39,10 +39,12 @@ fn get_b(line: &str) -> i32 {
   return 0;
 }
 
-pub fn run() -> i32 {
-  read_to_string("./input.txt")
+pub fn run() {
+  let result: i32 = read_to_string("./input.txt")
     .unwrap()
     .lines()
     .map(|line| 10 * get_a(line) + get_b(line))
-    .sum()
+    .sum();
+
+  println!("Result : {}", result);
 }
