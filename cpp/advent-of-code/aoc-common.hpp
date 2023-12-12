@@ -16,6 +16,7 @@ class AdventOfCodeSolver {
     printf("\n");
     printf("Reuslt     : \x1b[32m%lld\x1b[0m\n", answer);
     printf("Correct    : \x1b[32m%lld\x1b[0m\n", correct);
+    printf("Time       : \x1b[32m%lld\x1b[0m μs\n", diff);
     printf("Time       : \x1b[32m%lf\x1b[0m ms\n", diff / 1000.0);
     assert(answer == correct);
   }
@@ -29,6 +30,7 @@ class AdventOfCodeSolver {
     auto diff = std::chrono::duration_cast<std::chrono::microseconds>(finish - start).count();
     printf("\n");
     printf("Reuslt     : \x1b[32m%lld\x1b[0m\n", answer);
+    printf("Time       : \x1b[32m%lld\x1b[0m μs\n", diff);
     printf("Time       : \x1b[32m%lf\x1b[0m ms\n", diff / 1000.0);
   }
 
@@ -42,6 +44,7 @@ class AdventOfCodeSolver {
     printf("\n");
     printf("Reuslt     : \x1b[32m%lld\x1b[0m\n", answer);
     printf("Correct    : \x1b[32m%lld\x1b[0m\n", correct);
+    printf("Time       : \x1b[32m%lld\x1b[0m μs\n", diff);
     printf("Time       : \x1b[32m%lf\x1b[0m ms\n", diff / 1000.0);
     assert(answer == correct);
   }
@@ -55,6 +58,7 @@ class AdventOfCodeSolver {
     auto diff = std::chrono::duration_cast<std::chrono::microseconds>(finish - start).count();
     printf("\n");
     printf("Reuslt     : \x1b[32m%lld\x1b[0m\n", answer);
+    printf("Time       : \x1b[32m%lld\x1b[0m μs\n", diff);
     printf("Time       : \x1b[32m%lf\x1b[0m ms\n", diff / 1000.0);
   }
 };

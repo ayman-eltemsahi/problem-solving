@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.21)
 
 set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 add_definitions(-DRUNNING_LOCALLY)
@@ -22,7 +23,7 @@ list(APPEND INPUT_FILES
   # "hackerrank/extremum-permutations.cpp"
 
 
-  "advent-of-code/2023/day-11.cpp"
+  "advent-of-code/2023/day-12.cpp"
 
   # "leetcode/making-file-names-unique.cpp"
   # "leetcode/playground.cpp"
