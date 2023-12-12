@@ -1,4 +1,6 @@
-use std::{collections::VecDeque, fs::read_to_string, time::Instant};
+use std::{collections::VecDeque, fs::read_to_string};
+
+use crate::solver::{self, AdventOfCodeSolver};
 
 #[derive(Debug, Clone, Copy)]
 struct Point {
@@ -95,29 +97,19 @@ fn solve(expansion: i64) -> i64 {
     / 2
 }
 
-fn first_part() -> i64 {
-  solve(2)
-}
+struct AdventOfCodeDay11Solver {}
+impl solver::AdventOfCodeSolver for AdventOfCodeDay11Solver {
+  fn solve_first(&self) -> i64 {
+    solve(2)
+  }
 
-fn second_part() -> i64 {
-  solve(1000000)
+  fn solve_second(&self) -> i64 {
+    solve(1000000)
+  }
 }
 
 pub fn run() {
-  let time = Instant::now();
-
-  let first = first_part();
-  let second = second_part();
-
-  let duration = time.elapsed();
-  println!("Result : {}", first);
-  println!("Correct: {}", 9556712);
-  assert_eq!(first, 9556712);
-  println!();
-  println!("Result : {}", second);
-  println!("Correct: {}", 678626199476);
-  assert_eq!(second, 678626199476);
-
-  println!("Duration: {} μs", duration.as_micros() as f64);
-  println!("Duration: {} ms", duration.as_micros() as f64 / 1000.0);
+  let solver = AdventOfCodeDay11Solver {};
+  solver.first_part(9556712);
+  solver.second_part(678626199476);
 }

@@ -1,3 +1,4 @@
+mod solver;
 mod aoc_2023_day_01;
 mod aoc_2023_day_02;
 mod aoc_2023_day_03;
@@ -9,6 +10,7 @@ mod aoc_2023_day_08;
 mod aoc_2023_day_09;
 mod aoc_2023_day_10;
 mod aoc_2023_day_11;
+mod aoc_2023_day_12;
 
 fn main() {
   let args = std::env::args();
@@ -25,6 +27,7 @@ fn main() {
     09 => aoc_2023_day_09::run(),
     10 => aoc_2023_day_10::run(),
     11 => aoc_2023_day_11::run(),
+    12 => aoc_2023_day_12::run(),
 
     _ => panic!("Unknown input"),
   };
