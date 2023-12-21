@@ -23,7 +23,7 @@ list(APPEND INPUT_FILES
   # "hackerrank/extremum-permutations.cpp"
 
 
-  "advent-of-code/2023/day-14.cpp"
+  "advent-of-code/2023/day-15.cpp"
 
   # "leetcode/making-file-names-unique.cpp"
   # "leetcode/playground.cpp"
